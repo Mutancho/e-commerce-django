@@ -6,6 +6,11 @@ __pycache__/
 # C extensions
 *.so
 
+# Ignore .iml files and the .idea directory
+*.iml
+.idea/
+
+
 # Distribution / packaging
 .Python
 build/
