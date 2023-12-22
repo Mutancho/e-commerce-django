@@ -1,0 +1,29 @@
+<!-- home.html -->
+
+{% extends "base.html" %}
+
+{% block title %}
+Home - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Our Site!</h1>
+    <p>This is the homepage of our awesome Django application.</p>
+
+    <!-- Add more homepage content here -->
+    <div>
+        <h2>Features:</h2>
+        <ul>
+            <li>Feature 1</li>
+            <li>Feature 2</li>
+            <li>Feature 3</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Get Started:</h2>
+        <p><a href="{% url 'users:register' %}">Register</a> an account or <a href="{% url 'users:login' %}">Log in</a> to continue.</p>
+    </div>
+</div>
+{% endblock content %}
