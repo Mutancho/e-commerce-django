@@ -5,6 +5,7 @@ from django.db import models
 # Custom User Model
 class CustomUser(AbstractUser):
     # Additional fields from built in
+    username = None
     telephone = models.CharField(max_length=15, null=False, blank=False)
     date_of_birth = models.DateField(null=True, blank=True)
     GENDER_CHOICES = [
