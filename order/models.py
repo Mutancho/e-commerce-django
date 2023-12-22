@@ -1,11 +1,12 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 from product.models import Product
-from user.models import CustomUser
+from users.models import CustomUser
 
 
 # Create your models here.
 class Order(models.Model):
+    # todo create a common class for similar attributes between users table
     ORDER_STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('processing', 'Processing'),
