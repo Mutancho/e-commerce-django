@@ -3,3 +3,4 @@ Django==5.0
 sqlparse==0.4.4
 tzdata==2023.3
 python-dotenv~=1.0.0
+celery~=5.3.6
