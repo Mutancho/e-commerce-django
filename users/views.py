@@ -48,20 +48,25 @@ class PasswordChangeDoneView(auth_views.PasswordChangeDoneView):
 
 
 class CustomPasswordResetView(PasswordResetView):
-    template_name = 'users/reset_password.html'
-    success_url = reverse_lazy('users:reset_password_sent')
+    """View used for submitting the email address for password reset."""
+    template_name = 'users/password_reset.html'
+    email_template_name = 'users/password_reset_email.html'
+    success_url = reverse_lazy('users:password_reset_sent')
 
 
 class CustomPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'users/reset_password_sent.html'
+    """View shown after the user submits their email for password reset."""
+    template_name = 'users/password_reset_sent.html'
 
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'users/reset_password_confirm.html'
-    success_url = reverse_lazy('users:reset_password_confirm')
+    """View used for the actual password reset."""
+    template_name = 'users/password_reset_confirm.html'
+    success_url = reverse_lazy('users:password_reset_complete')
 
 
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):
-    template_name = 'users/reset_password_complete.html'
+    """View used to display password successfully reset."""
+    template_name = 'users/password_reset_complete.html'
 
 # todo add another view for Password reset unsuccessful eg when link is already userd.

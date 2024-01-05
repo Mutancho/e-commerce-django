@@ -17,15 +17,15 @@ urlpatterns = [
     path('password_change/done/', PasswordChangeDoneView.as_view(), name='password_change_done'),
 
     # forgotten password reset
-    path('reset_password/', CustomPasswordResetView.as_view(), name='reset_password'),
+    path('password_reset/', CustomPasswordResetView.as_view(), name='password_reset'),
 
-    path('reset_password_sent/', CustomPasswordResetDoneView.as_view(), name='reset_password_sent'),
+    path('password_reset_sent/', CustomPasswordResetDoneView.as_view(), name='password_reset_sent'),
 
-    path('reset/<uidb64>/<token>/',
-         CustomPasswordResetConfirmView.as_view(template_name='users/reset_password_confirm.html'),
-         name='reset_password_confirm'),
+    path('password_reset_confirm/<uidb64>/<token>/',
+         CustomPasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'),
+         name='password_reset_confirm'),
 
-    path('reset_password_complete/',
-         CustomPasswordResetCompleteView.as_view(template_name='users/reset_password_complete.html'),
-         name='reset_password_complete'),
+    path('password_reset_complete/',
+         CustomPasswordResetCompleteView.as_view(template_name='users/password_reset_complete.html'),
+         name='password_reset_complete'),
 ]
