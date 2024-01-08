@@ -21,6 +21,6 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),  # Custom user URLs
     path('auth/', include('django.contrib.auth.urls')),  # Default auth URLs
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),  # Other URLs
+    path('', include('pages.urls')),
     path('product/', include('product.urls')),
 ]

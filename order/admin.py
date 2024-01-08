@@ -5,8 +5,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Register your models here.
-
-
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     fields = ('product', 'price', 'quantity', 'subtotal')  # Add 'subtotal' here
