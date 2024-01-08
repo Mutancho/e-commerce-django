@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator
 from django.db import models
+from discount.models import Discount
 from product.models import Product
 from users.models import CustomUser
 
@@ -32,11 +33,16 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_paid = models.BooleanField(default=False, null=False)
 
+    discount = models.ForeignKey(Discount, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
+
     def __str__(self):
         return f"Order {self.id} by {self.user.username if self.user else 'Guest'}"
 
     def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())
+        total_cost = sum(item.get_cost() for item in self.items.all())
+        if self.discount:
+            total_cost = self.discount.apply_discount(total_cost)
+        return total_cost
 
 
 class OrderItem(models.Model):
@@ -50,3 +56,8 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+    def get_subtotal(self):
+        if self.price is not None and self.quantity is not None:
+            return self.price * self.quantity
+        return 0

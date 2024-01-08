@@ -22,4 +22,5 @@ urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),  # Default auth URLs
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),  # Other URLs
+    path('product/', include('product.urls')),
 ]

@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+from django.utils import timezone
 
 
 # Create your models here.
@@ -29,7 +30,8 @@ class Discount(models.Model):
         return self.code
 
     def is_currently_active(self):
-        return self.active and self.valid_from <= datetime.datetime.now() <= self.valid_to
+        now = timezone.now()
+        return self.active and self.valid_from <= now <= self.valid_to
 
     def apply_discount(self, amount):
         if self.discount_type == 'percentage':

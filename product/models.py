@@ -13,12 +13,12 @@ class Product(models.Model):
     description = models.TextField(blank=True)
     sell_price = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0)], null=False,
                                      blank=False)
+    cost = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0)], null=False,
+                               blank=False)
     quantity = models.IntegerField(validators=[MinValueValidator(0)], null=False, blank=False)
     is_unlimited = models.BooleanField(default=False)
     weight = models.DecimalField(max_digits=10, decimal_places=3, validators=[MinValueValidator(0)], null=False,
                                  blank=False)
-    cost = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0)], null=False,
-                               blank=False)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     barcode = models.CharField(max_length=100, unique=True)
