@@ -1,0 +1,19 @@
+.is-valid {
+    border-color: #28a745 !important; /* Bootstrap success green */
+}
+
+.is-invalid {
+    border-color: #dc3545 !important; /* Bootstrap danger red */
+}
+
+.validation-text {
+    font-size: 0.875em; /* Smaller text for validation messages */
+}
+
+.text-valid {
+    color: #28a745; /* Bootstrap success green */
+}
+
+.text-invalid {
+    color: #dc3545; /* Bootstrap danger red */
+}

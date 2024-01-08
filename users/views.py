@@ -35,6 +35,7 @@ class CustomLoginView(auth_views.LoginView):
 class CustomLogoutView(auth_views.LogoutView):
     next_page = reverse_lazy('home')
 
+
 # Customizing the PasswordChangeView
 class CustomPasswordChangeView(auth_views.PasswordChangeView):
     template_name = 'users/password_change_form.html'  # Specify your custom template
@@ -68,4 +69,4 @@ class CustomPasswordResetCompleteView(PasswordResetCompleteView):
     """View used to display password successfully reset."""
     template_name = 'users/password_reset_complete.html'
 
-# todo add another view for Password reset unsuccessful eg when link is already userd.
+# todo add another view for Password reset unsuccessful eg when link is already used.

@@ -1,18 +1,41 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block title %}
 Login - {{ block.super }}
 {% endblock title %}
 
 {% block content %}
-<div class="login-container">
-    <h2>Login</h2>
-    <form method="post" action="{% url 'users:login' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
-    <a href="{% url 'users:register' %}">Don't have an account? Register here</a>
-    <p><a href="{% url 'users:password_reset' %}">Forgot your password?</a></p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Login</h3>
+                    <form method="post" action="{% url 'users:login' %}">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="mb-3">
+                            {{ field.label_tag }}
+                            {{ field|add_class:'form-control' }}
+                            {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                            <div class="invalid-feedback" style="display: block;">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-white border-0">
+                    <a href="{% url 'users:register' %}">Don't have an account? Register here</a>
+                    <br>
+                    <a href="{% url 'users:password_reset' %}">Forgot your password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock content %}

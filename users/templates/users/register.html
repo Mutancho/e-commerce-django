@@ -1,13 +1,74 @@
-<!-- register.html -->
 {% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extra_js %}
+<script src="{% static 'js/passwords.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        setupPasswordValidationChecks('id_password1', 'id_password2');
+    });
+</script>
+{% endblock %}
 
 {% block title %}Register - {{ block.super }}{% endblock %}
 
 {% block content %}
-<h2>Register</h2>
-<form method="post" action="{% url 'users:register' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Register</h3>
+                    <form method="post" action="{% url 'users:register' %}" class="p-4">
+                        {% csrf_token %}
+                        <!-- Manually render the email field -->
+                        <div class="mb-3">
+                            {{ form.email.label_tag }}
+                            {% render_field form.email class+="form-control" %}
+                            {% if form.email.help_text %}
+                                <small class="form-text text-muted">{{ form.email.help_text }}</small>
+                            {% endif %}
+                            {% for error in form.email.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <!-- Manually render the password fields -->
+                        <div class="mb-3">
+                            {{ form.password1.label_tag }}
+                            {% render_field form.password1 class+="form-control" %}
+                        </div>
+                        <div class="mb-3">
+                            {{ form.password2.label_tag }}
+                            {% render_field form.password2 class+="form-control" %}
+                        </div>
+                        <!-- Criteria list for password validation -->
+                        <ul class="validation-text">
+                            <li id="length-criteria" class="text-invalid">Your password must contain at least 8 characters.</li>
+                            <li id="uppercase-criteria" class="text-invalid">Your password must contain uppercase letters.</li>
+                            <li id="number-criteria" class="text-invalid">Your password must contain numbers.</li>
+                            <li id="special-char-criteria" class="text-invalid">Your password must contain special characters.</li>
+                        </ul>
+                        <!-- Loop over the rest of the form fields -->
+                        {% for field in form %}
+                            {% if field.name != 'email' and field.name != 'password1' and field.name != 'password2' %}
+                                <div class="mb-3">
+                                    {{ field.label_tag }}
+                                    {% render_field field class+="form-control" %}
+                                    {% if field.help_text %}
+                                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                        <div class="invalid-feedback">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
