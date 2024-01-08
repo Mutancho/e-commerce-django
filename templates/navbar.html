@@ -36,28 +36,33 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <!-- Nav item with a link to the home page -->
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'perfumes' %}active{% endif %}"
+                       href="{% url 'perfumes' %}">Perfumes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'health_and_beauty' %}active{% endif %}"
+                       href="{% url 'health_and_beauty' %}">Health & Beauty</a>
                 </li>
                 <!-- More nav items... -->
                 <!-- Dropdown for multi-level menu -->
-                <li class="nav-item dropdown">
-                    <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownMenuLink"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                    >
-                        Categories
-                    </a>
-                    <!-- Dropdown menu -->
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Perfumes</a></li>
-                        <li><a class="dropdown-item" href="#">Health & Beauty</a></li>
-                        <!-- More dropdown items... -->
-                    </ul>
-                </li>
+                {#                <li class="nav-item dropdown">#}
+                {#                    <a#}
+                {#                            class="nav-link dropdown-toggle"#}
+                {#                            href="#"#}
+                {#                            id="navbarDropdownMenuLink"#}
+                {#                            role="button"#}
+                {#                            data-bs-toggle="dropdown"#}
+                {#                            aria-expanded="false"#}
+                {#                    >#}
+                {#                        Categories#}
+                {#                    </a>#}
+                {#                    <!-- Dropdown menu -->#}
+                {#                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+                {#                        <li><a class="dropdown-item" href="#">Perfumes</a></li>#}
+                {#                        <li><a class="dropdown-item" href="#">Health & Beauty</a></li>#}
+                {#                        <!-- More dropdown items... -->#}
+                {#                    </ul>#}
+                {#                </li>#}
             </ul>
 
             <!-- Right-aligned items for account and cart -->
@@ -74,16 +79,19 @@
                 {% else %}
                     <!-- Account/Login link -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:login' %}">Login</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}"
+                           href="{% url 'users:login' %}">Login</a>
                     </li>
                     <!-- Register link (if you have registration) -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:register' %}">Register</a>
-                    </li>
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link {% if request.resolver_match.url_name == 'register' %}active{% endif %}"#}
+{#                           href="{% url 'users:register' %}">Register</a>#}
+{#                    </li>#}
                 {% endif %}
                 <!-- Cart link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/cart">Cart</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'cart_detail' %}active{% endif %}"
+                       href="{% url 'cart:cart_detail' %}">Cart</a>
                 </li>
             </ul>
         </div>
