@@ -33,8 +33,7 @@ class CustomLoginView(auth_views.LoginView):
 
 # Customizing the LogoutView
 class CustomLogoutView(auth_views.LogoutView):
-    next_page = reverse_lazy('name_of_homepage_view')  # Replace with your homepage view
-
+    next_page = reverse_lazy('home')
 
 # Customizing the PasswordChangeView
 class CustomPasswordChangeView(auth_views.PasswordChangeView):
