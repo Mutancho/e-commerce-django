@@ -25,3 +25,54 @@
         background-color: #000; /* Or your desired color */
     }
 }
+
+
+/*-------------------------------------------------*/
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #fff; /* Example background color */
+}
+
+.logo-container img {
+  height: 50px; /* Adjust as needed */
+}
+
+.search-bar form {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.search-bar input {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+.search-bar button {
+  padding: 0.5rem;
+  background: #f0f0f0;
+  border: none;
+  cursor: pointer;
+}
+
+.breadcrumbs a {
+  color: #666;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+
+.main-navigation {
+  display: flex;
+  justify-content: space-around;
+  background: #eee; /* Example background color */
+  padding: 0.5rem 0;
+}
+
+.main-navigation a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}

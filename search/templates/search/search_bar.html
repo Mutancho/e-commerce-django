@@ -1,0 +1,9 @@
+<!-- search/search_bar.html -->
+<div class="search-bar">
+    <form action="{% url 'search_view' %}" method="get">
+        <label>
+            <input type="text" name="q" placeholder="Search for products" value="{{ request.GET.q }}" class="form-control">
+        </label>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>

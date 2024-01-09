@@ -1,0 +1,15 @@
+<!-- templates/search/search_results.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Search Results</h2>
+    {% for product in products %}
+        <div>
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description }}</p>
+            <!-- Add more product details you want to display -->
+        </div>
+    {% empty %}
+        <p>No products found for '{{ query }}'</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+/* main.css */
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Use a nice font */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 15px;
+}
+
+nav .navbar {
+    margin-bottom: 0; /* Remove margin if any */
+}
+
+footer {
+    background: #f8f9fa;
+    padding: 10px 0;
+}
+
+/* Add more styles based on your design preferences */
