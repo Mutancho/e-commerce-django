@@ -1,0 +1,6 @@
+<!-- pages/templates/pages/product_page_partial.html -->
+{% for product in products %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        {% include 'product/product_card.html' with product=product %}
+    </div>
+{% endfor %}

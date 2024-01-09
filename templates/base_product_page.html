@@ -1,0 +1,24 @@
+<!-- pages/templates/pages/base_product_page.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head %}
+    <!-- Add custom CSS for product pages -->
+    <link rel="stylesheet" href="{% static 'css/base_product_page.css' %}">
+    {{ block.super }}
+{% endblock head %}
+
+{% block content %}
+    <div class="product-page-container">
+        <div class="row" id="product-grid">
+            {% block product_page_content %}
+            {% endblock product_page_content %}
+        </div>
+        <div id="loading" data-load-more-products-url="{% url 'pages:load_more_products' %}" style="display: none;">
+            Loading more products...
+        </div>
+    </div>
+
+    <script src="{% static 'js/infinite_scroll.js' %}"></script>
+{% endblock content %}

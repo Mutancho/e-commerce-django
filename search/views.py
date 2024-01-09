@@ -16,6 +16,6 @@ def search_view(request):
 
     context = {
         'query': query,
-        'products': products,
+        'product': products,
     }
     return render(request, 'search/search_results.html', context)

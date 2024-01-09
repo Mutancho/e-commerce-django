@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.contrib import admin
 from django.contrib.contenttypes.admin import GenericTabularInline
 from media.models import Media
 from .models import Category

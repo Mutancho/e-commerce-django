@@ -1,0 +1,17 @@
+<!-- product_card.html -->
+<div class="product-card" data-product-id="{{ product.id }}">
+    <div class="product-image">
+        {% for media in product.media.all %}
+            {% if media.media_type == 'image' and media.is_main %}
+                <img src="{{ media.file.url }}" alt="{{ media.alt_text }}">
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">{{ product.title }}</h3>
+        <p class="product-price">{{ product.sell_price }}</p>
+    </div>
+    <div class="product-action">
+        <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+</div>

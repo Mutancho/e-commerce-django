@@ -1,0 +1,76 @@
+.product-card {
+    width: 250px; /* fixed width, or you could use percentages */
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    margin: 10px;
+    float: left; /* or use flexbox/grid for a more modern layout */
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow */
+}
+
+.product-image {
+    height: 200px; /* fixed height for consistent image sizes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-title {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1em;
+    color: #555;
+}
+
+.product-action {
+    text-align: center;
+    /* Instead of setting display to none, set visibility to hidden to reserve the space */
+    visibility: hidden;
+    opacity: 0; /* Start fully transparent */
+    transition: visibility 0s, opacity 0.3s ease; /* Transition for smooth fade-in effect */
+    height: 50px; /* Set a fixed height for the button */
+    margin-top: 10px; /* Space between the price and the button */
+}
+
+.product-card:hover .product-action {
+    visibility: visible; /* Make button visible on hover */
+    opacity: 1; /* Fade in to fully opaque */
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    /* No change in size or position */
+}
+
+.add-to-cart-btn {
+    background-color: #333; /* Dark background */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjust padding as needed */
+    cursor: pointer;
+    width: 100%; /* Button fills the width of its container */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+
+    /* Flexbox to center text vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #111; /* Even darker on hover */
+}

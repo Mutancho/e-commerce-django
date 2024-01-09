@@ -1,30 +1,28 @@
 /* main.css */
 
-body {
-    font-family: 'Open Sans', sans-serif; /* Use a nice font */
+/* Ensure the html and body take up the full height of the viewport */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
 }
 
-header {
-    background: #fff;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+/* Set up the body as a flex container to keep the footer at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use viewport height to ensure full coverage */
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 15px;
+/* Allow the main content to grow and push the footer down */
+main {
+    flex: 1;
+    padding-bottom: 50px; /* Adjust based on footer height */
 }
 
-nav .navbar {
-    margin-bottom: 0; /* Remove margin if any */
-}
-
+/* Style the footer */
 footer {
+    flex-shrink: 0;
     background: #f8f9fa;
     padding: 10px 0;
+    text-align: center;
 }
-
-/* Add more styles based on your design preferences */

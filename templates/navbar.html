@@ -14,7 +14,7 @@
     <div class="container-fluid">
 
         <!-- Navbar brand for your logo or name, linked to the home page -->
-        <a class="navbar-brand" href="{% url 'home' %}">Brand</a>
+        <a class="navbar-brand" href="{% url 'pages:home' %}">Brand</a>
 
         <!-- Toggle button for mobile nav -->
         <button
@@ -37,11 +37,11 @@
                 <!-- Nav item with a link to the home page -->
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'perfumes' %}active{% endif %}"
-                       href="{% url 'perfumes' %}">Perfumes</a>
+                       href="{% url 'pages:perfumes' %}">Perfumes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'health_and_beauty' %}active{% endif %}"
-                       href="{% url 'health_and_beauty' %}">Health & Beauty</a>
+                       href="{% url 'pages:health_and_beauty' %}">Health & Beauty</a>
                 </li>
                 <!-- More nav items... -->
                 <!-- Dropdown for multi-level menu -->

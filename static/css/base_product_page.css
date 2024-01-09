@@ -1,0 +1,32 @@
+/* base_product_page.css - Assume this is the base CSS for small devices like mobile phones. */
+
+.product-card {
+    /* Base styles for the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    box-sizing: border-box;
+    width: 100%; /* Take the full width on small screens */
+}
+
+/* Now, define styles for larger screens with media queries */
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .product-card {
+        width: calc(50% - 20px); /* 2 cards per row */
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .product-card {
+        width: calc(33.333% - 20px); /* 3 cards per row */
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .product-card {
+        width: calc(25% - 20px); /* 4 cards per row */
+    }
+}
